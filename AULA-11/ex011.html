@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indentificar nacionalidade</title>
+</head>
+<body>
+    <h1>Indentificar  Nacionalidade</h1>
+    Nome do País: <input type="word" name="país" id="país">
+    <input type="button" value="verificar" onclick="calcular()">
+    <div id="res">
+    </div>
+    <script>
+        function calcular() {
+            var país = document.getElementById("país").value;
+            if (país === "Brasil") {
+                document.getElementById("res").innerHTML = `<p>Você é brasileiro</p>`;
+            } else {
+                document.getElementById("res").innerHTML = `<p>Você é estrangeiro</p>`;
+            }
+        }
+    </script>
+</body>
+</html>

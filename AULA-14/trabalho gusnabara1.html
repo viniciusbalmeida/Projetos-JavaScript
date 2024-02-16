@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,   initial-scale=1.0">
+        <meta http-equiv="X-UA-compatible" content="ie=edge">
+        <title>Super contador</title>
+        <link rel="stylesheet" href="estilo.css">
+        <style>
+            body {
+                background-color: rgb(0, 140, 255);
+                color: black;
+                font: normal 20pt Arial;
+            }
+            h1 {
+                color: aliceblue;
+                
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+        <h1 style="text-align: center;">VAMOS CONTAR</h1>
+        </header>
+        <section>
+            <div id="dados">
+                <p>Início: <input type="number" name="inicio"  id="txti"></p>
+                <p>Fim:<input type="number" nome="fim" id="txtf"></p>
+                <p>Passo:<input type="number" name="passo" id="txtp"></p>
+                <p><input type="button" value="Contar" onclick="contar()"></p>
+            </div>
+            <div id="res">
+                 Preparando a contagem...   
+            </div>        
+        </section>
+        <footer>
+            <p>&copy; VYNNY LOUCO</p>
+        </footer>
+        <script >
+            function contar() {
+                let ini = document.getElementById('txti')
+                let fim = document.getElementById('txtf')
+                let passo = document.getElementById('txtp')
+                let res=document.getElementById('res') 
+    
+                if (ini.value.length == 0  || fim.value.length == 0 || passo.value.length == 0) {
+                window.alert('[ERRO] Faltam dados!')
+                res.innerHTML = 'Impossível contar!'
+                }else {
+                res.innerHTML = 'Contando:<br>'
+                let i = Number(ini.value)
+                let f = Number(fim.value)
+                let p = Number(passo.value)
+                if (p<=0 ) {
+                    window.alert('Passo Inválido Considerando passo1')
+                    p = 1
+                }
+                if(i<f) {
+                    //contagem crescente
+                for(let c = i; c<= f; c+= p){
+                res.innerHTML += `${c} \u{1F449}`
+                }
+                
+            }else{
+                //contagem regressiva
+                for(let c = i; c>= f; c-= p){
+                    res.innerHTML += `${c} \u{1F449}`
+
+         }
+        }
+        res.innerHTML +=`\u{1F3C1}`
+
+    }   
+}     
+                    
+        </script>
+           
+    </body>
+
+</html>
